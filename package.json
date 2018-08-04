@@ -7,7 +7,9 @@
   },
   "license": "MIT",
   "scripts": {
-    "test": "jest"
+    "test": "node_modules/.bin/jest",
+    "coverage": "npm run test --coverage",
+    "coverage:publish": "node_modules/.bin/codecov"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
