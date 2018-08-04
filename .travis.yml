@@ -3,4 +3,5 @@ language:
 node_js:
   - "lts/carbon"
 script:
-  - yarn run coverage && yarn run coverage:publish
+  - yarn run coverage
+  - bash <(curl -s https://codecov.io/bash)
