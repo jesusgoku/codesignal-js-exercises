@@ -10,7 +10,8 @@
     "test": "node_modules/.bin/jest --verbose",
     "test:watch": "npm run test -- --watch",
     "coverage": "npm run test -- --coverage",
-    "coverage:publish": "node_modules/.bin/codecov"
+    "coverage:publish": "node_modules/.bin/codecov",
+    "check": "node_modules/.bin/tsc --noEmit"
   },
   "devDependencies": {
     "@types/jest": "^23.3.1",
