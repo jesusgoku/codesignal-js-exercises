@@ -7,15 +7,19 @@
   },
   "license": "MIT",
   "scripts": {
-    "test": "node_modules/.bin/jest",
+    "test": "node_modules/.bin/jest --verbose",
+    "test:watch": "npm run test -- --watch",
     "coverage": "npm run test -- --coverage",
     "coverage:publish": "node_modules/.bin/codecov"
   },
   "devDependencies": {
+    "@types/jest": "^23.3.1",
     "babel-core": "^6.26.3",
     "babel-jest": "^23.4.2",
     "babel-preset-env": "^1.7.0",
     "jest": "^23.4.2",
-    "regenerator-runtime": "^0.12.1"
+    "regenerator-runtime": "^0.12.1",
+    "ts-jest": "^23.1.2",
+    "typescript": "^3.0.1"
   }
 }

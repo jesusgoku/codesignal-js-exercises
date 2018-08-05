@@ -1,6 +1,9 @@
 // For a detailed explanation regarding each configuration property, visit:
 // https://jestjs.io/docs/en/configuration.html
 
+const { defaults } = require('jest-config');
+
+
 module.exports = {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
@@ -22,6 +25,13 @@ module.exports = {
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   // collectCoverageFrom: null,
+  collectCoverageFrom: [
+    "**/*.{js,jsx}",
+    "**/*.{ts,tsx}",
+    "!jest.config.js",
+    "!**/node_modules/**",
+    "!**/vendor/**",
+  ],
 
   // The directory where Jest should output its coverage files
   coverageDirectory: "coverage",
@@ -55,7 +65,11 @@ module.exports = {
   // globalTeardown: null,
 
   // A set of global variables that need to be available in all test environments
-  // globals: {},
+  globals: {
+    "ts-jest": {
+      "useBabelrc": true,
+    },
+  },
 
   // An array of directory names to be searched recursively up from the requiring module's location
   // moduleDirectories: [
@@ -63,12 +77,11 @@ module.exports = {
   // ],
 
   // An array of file extensions your modules use
-  // moduleFileExtensions: [
-  //   "js",
-  //   "json",
-  //   "jsx",
-  //   "node"
-  // ],
+  moduleFileExtensions: [
+    ...defaults.moduleFileExtensions,
+    "ts",
+    "tsx",
+  ],
 
   // A map from regular expressions to module names that allow to stub out resources with a single module
   // moduleNameMapper: {},
@@ -145,6 +158,7 @@ module.exports = {
 
   // The regexp pattern Jest uses to detect test files
   // testRegex: "",
+  "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
 
   // This option allows the use of a custom results processor
   // testResultsProcessor: null,
@@ -160,6 +174,11 @@ module.exports = {
 
   // A map from regular expressions to paths to transformers
   // transform: null,
+  transform: {
+    ...defaults.transform,
+    "^.+\\.tsx?$": "ts-jest",
+    "^.+\\.jsx?$": "babel-jest",
+  },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [
@@ -170,7 +189,7 @@ module.exports = {
   // unmockedModulePathPatterns: undefined,
 
   // Indicates whether each individual test should be reported during the run
-  // verbose: null,
+  verbose: true,
 
   // An array of regexp patterns that are matched against all source file paths before re-running tests in watch mode
   // watchPathIgnorePatterns: [],
