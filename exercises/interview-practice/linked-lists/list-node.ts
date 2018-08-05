@@ -7,7 +7,7 @@ class ListNode<T> {
     this.next = null;
   }
 
-  static fromArray<T>(aList: Array<T>): ListNode<T> | null {
+  static fromArray<T>(aList: Array<T> | null): ListNode<T> | null {
     if (!aList || aList.length === 0) {
       return null;
     }
