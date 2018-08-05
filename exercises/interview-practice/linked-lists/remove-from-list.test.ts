@@ -1,5 +1,6 @@
 // @ts-ignore TS2691
-import method, { ListNode } from './remove-from-list.ts';
+import method from './remove-from-list.ts';
+import ListNode from './list-node';
 
 const testCases = [
   {

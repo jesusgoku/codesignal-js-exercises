@@ -1,4 +1,5 @@
-import method, { ListNode } from './remove-from-list.js';
+import ListNode from './list-node';
+import method from './remove-from-list.js';
 
 const testCases = [
   {
