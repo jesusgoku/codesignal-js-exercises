@@ -34,6 +34,24 @@ class ListNode<T> {
 
     return aList;
   }
+
+  static compareLists<T>(la: ListNode<T> | null, lb: ListNode<T> | null): boolean {
+    let ca: ListNode<T> | null = la;
+    let cb: ListNode<T> | null = lb;
+
+    while (ca && cb) {
+      if (ca.value !== cb.value) return false;
+
+      ca = ca.next;
+      cb = cb.next;
+    }
+
+    if (ca === cb) {
+      return true;
+    }
+
+    return false;
+  }
 }
 
 export default ListNode;
