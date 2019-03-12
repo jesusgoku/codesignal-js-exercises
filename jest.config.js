@@ -3,7 +3,6 @@
 
 const { defaults } = require('jest-config');
 
-
 module.exports = {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
@@ -26,15 +25,16 @@ module.exports = {
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   // collectCoverageFrom: null,
   collectCoverageFrom: [
-    "**/*.{js,jsx}",
-    "**/*.{ts,tsx}",
-    "!jest.config.js",
-    "!**/node_modules/**",
-    "!**/vendor/**",
+    '**/*.{js,jsx}',
+    '**/*.{ts,tsx}',
+    '!jest.config.js',
+    '!**/node_modules/**',
+    '!**/vendor/**',
+    '!**/coverage/**',
   ],
 
   // The directory where Jest should output its coverage files
-  coverageDirectory: "coverage",
+  coverageDirectory: 'coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
   // coveragePathIgnorePatterns: [
@@ -66,8 +66,8 @@ module.exports = {
 
   // A set of global variables that need to be available in all test environments
   globals: {
-    "ts-jest": {
-      "useBabelrc": true,
+    'ts-jest': {
+      useBabelrc: true,
     },
   },
 
@@ -77,11 +77,7 @@ module.exports = {
   // ],
 
   // An array of file extensions your modules use
-  moduleFileExtensions: [
-    ...defaults.moduleFileExtensions,
-    "ts",
-    "tsx",
-  ],
+  moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx'],
 
   // A map from regular expressions to module names that allow to stub out resources with a single module
   // moduleNameMapper: {},
@@ -137,7 +133,7 @@ module.exports = {
   // snapshotSerializers: [],
 
   // The test environment that will be used for testing
-  testEnvironment: "node",
+  testEnvironment: 'node',
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
@@ -158,7 +154,7 @@ module.exports = {
 
   // The regexp pattern Jest uses to detect test files
   // testRegex: "",
-  "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+  testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$',
 
   // This option allows the use of a custom results processor
   // testResultsProcessor: null,
@@ -176,8 +172,8 @@ module.exports = {
   // transform: null,
   transform: {
     ...defaults.transform,
-    "^.+\\.tsx?$": "ts-jest",
-    "^.+\\.jsx?$": "babel-jest",
+    '^.+\\.tsx?$': 'ts-jest',
+    '^.+\\.jsx?$': 'babel-jest',
   },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
